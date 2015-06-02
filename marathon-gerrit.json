@@ -1,0 +1,22 @@
+{
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "gerrit-server:v2",
+        "network": "BRIDGE",
+        "portMappings": [
+                { "containerPort": 8081, "hostPort": 8081, "protocol": "tcp"},
+		{ "containerPort": 29418, "hostPort": 29418, "protocol": "tcp"}
+        ],
+        "parameters":[
+                {"key":"hostname", "value":"gerrit-server.gerritforge.internal"}
+        ]
+    }
+ },
+  "id": "gerrit",
+  "instances": 1,
+  "cpus": 1,
+  "mem": 4240,
+  "cmd": "/tmp/startup_gerrit.sh 1",
+  "constraints": [["hostname", "CLUSTER", "mesos1.gerritforge.com"]]
+}
