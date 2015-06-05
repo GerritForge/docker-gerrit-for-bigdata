@@ -27,6 +27,7 @@ RUN mkdir -p $GERRIT_ROOT/plugins
 RUN wget -P $GERRIT_ROOT/plugins https://ci.gerritforge.com/view/Plugins-stable-2.11/job/Plugin_github_stable-2.11/lastSuccessfulBuild/artifact/github-plugin/target/github-plugin-2.11.jar
 RUN wget -P $GERRIT_ROOT/lib https://ci.gerritforge.com/view/Plugins-stable-2.11/job/Plugin_github_stable-2.11/lastSuccessfulBuild/artifact/github-oauth/target/github-oauth-2.11.jar
 ADD configFiles/gerrit.config $GERRIT_ROOT/etc/gerrit.config
+ADD configFiles/replication.config $GERRIT_ROOT/etc/replication.config
 ADD downloads/ojdbc6.jar $GERRIT_ROOT/lib/ojdbc6.jar
 ADD configFiles/secure.config $GERRIT_ROOT/etc/secure.config
 
