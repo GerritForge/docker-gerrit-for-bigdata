@@ -31,9 +31,6 @@ ADD configFiles/replication.config $GERRIT_ROOT/etc/replication.config
 ADD downloads/ojdbc6.jar $GERRIT_ROOT/lib/ojdbc6.jar
 ADD configFiles/secure.config $GERRIT_ROOT/etc/secure.config
 
-#RUN java -jar $GERRIT_WAR init --batch -d $GERRIT_ROOT
-#RUN java -jar $GERRIT_WAR reindex -d $GERRIT_ROOT
-
 USER root
 ADD scriptFiles/startup_gerrit.sh /tmp/startup_gerrit.sh
 RUN chmod +x /tmp/startup_gerrit.sh
