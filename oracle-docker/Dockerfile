@@ -44,7 +44,12 @@ EXPOSE 22
 EXPOSE 1521
 EXPOSE 8080
 
-CMD sed -i -E "s/HOST = [^)]+/HOST = $HOSTNAME/g" /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora; \
-	service oracle-xe start; \
-	echo "ORACLE STARTED"
-	/usr/sbin/sshd -D
+ADD run.sh /usr/bin/
+
+CMD ["run.sh"]
+
+#CMD sed -i -E "s/HOST = [^)]+/HOST = $HOSTNAME/g" /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora; \
+#	service oracle-xe start; \
+#	echo "ORACLE STARTED" \
+#	/usr/sbin/sshd -D \
+#	sleep.infinity
